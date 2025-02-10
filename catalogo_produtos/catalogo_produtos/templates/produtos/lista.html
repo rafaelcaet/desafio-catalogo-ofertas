@@ -1,0 +1,26 @@
+"""
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista de Produtos</title>
+</head>
+
+<body>
+    <h1>Lista de Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <img src="{{ produto.imagem_url }}" alt="{{ produto.nome }}" width="100">
+            <p>{{ produto.nome }}</p>
+            <p>Preço: R$ {{ produto.preco }}</p>
+            <p>Parcelamento: {{ produto.parcelamento }}</p>
+            <p>Frete grátis: {{ produto.frete_gratis }}</p>
+            <p><a href="{{ produto.link }}">Ver no Mercado Livre</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
+"""
