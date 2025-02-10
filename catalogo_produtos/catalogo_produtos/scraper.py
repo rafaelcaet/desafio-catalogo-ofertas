@@ -9,7 +9,7 @@ import time
 def coletar_produtos():
     url = "https://www.mercadolivre.com.br"
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    driver.get(f"{url}/search?search_type=search&item_id=Computador%20Gamer%20i7%2016gb%20ssd%201tb")
+    driver.get(f"{url.replace("www", "lista")}/computador-gamer-i7-16gb-ssd-1tb#D[A:Computador%20Gamer%20i7%2016gb%20ssd%201tb]")
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "li.ui-search-layout__item")))
     produtos = []
@@ -37,6 +37,7 @@ def coletar_produtos():
                 "frete_gratis": frete_gratis,
             }
             produtos.append(produto)
+            print("prod:",produto)
         except Exception as e:
             print(f"Erro ao coletar dados: {e}")
 
